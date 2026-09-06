@@ -1,0 +1,172 @@
+:root {
+  --header-bg: #8d7361;
+  --main-bg: #987554;
+  --sidebar-bg: #a68465;
+  --card-bg: #dedede;
+  --text-color: #ffffff;
+  --dark-text: #2c2520;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: var(--main-bg);
+  color: var(--text-color);
+}
+
+/* Header & Navigation */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--header-bg);
+  padding: 15px 0;
+  border-bottom: 2px solid #ffffff33;
+}
+
+.navbar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  padding-bottom: 4px;
+}
+
+.navbar a.active {
+  border-bottom: 2px solid var(--text-color);
+}
+
+/* Hero Section (Home View) */
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  margin-bottom: 10px;
+}
+
+.hero-subtitle {
+  font-size: 1.4rem;
+  opacity: 0.9;
+}
+
+/* Layout for Shop / Shop Page */
+.shop-layout {
+  display: flex;
+  min-height: calc(100vh - 55px);
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: var(--sidebar-bg);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 15px;
+  border: none;
+  margin-bottom: 25px;
+  box-sizing: border-box;
+}
+
+.filter-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+/* Items Display Grid */
+.grid-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 25px;
+}
+
+/* Item Card */
+.item-card {
+  background-color: var(--card-bg);
+  color: var(--dark-text);
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.item-card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.item-card p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.card-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.card-actions button {
+  flex: 1;
+  padding: 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.btn-like { background-color: #8d7361; color: white; }
+.btn-delete { background-color: #a84242; color: white; }
+
+/* Admin Form Container */
+.admin-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: var(--sidebar-bg);
+  padding: 30px;
+  border-radius: 12px;
+}
+
+.admin-form input, .admin-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: none;
+  box-sizing: border-box;
+}
+
+.admin-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--header-bg);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
