@@ -4,14 +4,12 @@ A react-based coffee e-commerce application with an admin portal for managing pr
 
 ## Table of Contents
 
-- [Overview](#overview)
-- [Features](#features)
-- [Live Demo](#live-demo)
-- [Local Setup](#local-setup)
-- [Technologies Used](#technologies-used)
-- [Contact](#contact)
-- [Roadmap](#roadmap)
-- [License](#license)
+- [Overview]
+- [Features]
+- [Live-Demo]
+- [Technologies-Used]
+- [Installation] 
+
 
 ## Overview
 
@@ -46,11 +44,7 @@ https://kahawamoto.netlify.app/
 - JSON (`db.json`)
 
 
-## Getting Started
-
-Follow these instructions to get a copy of the project running on your local machine.
-
-### Installation
+## Installation
 
 1. Clone the repository:
    **bash**
