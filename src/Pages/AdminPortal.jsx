@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function AdminPortal({ onAddToy }) {
+function AdminPortal({ onAddCoffee }) {
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -14,14 +14,14 @@ function AdminPortal({ onAddToy }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    fetch("http://localhost:3000/toys", {
+    fetch("http://localhost:3000/coffee", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ...formData, likes: 0 }),
     })
       .then((r) => r.json())
-      .then((newToy) => {
-        onAddToy(newToy);
+      .then((newCoffee) => {
+        onAddCoffee(newCoffee);
         setFormData({ name: "", description: "", origin: "", price: "" });
       });
   }

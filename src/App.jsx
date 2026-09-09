@@ -6,25 +6,26 @@ import Shop from "./Pages/Shop";
 import AdminPortal from "./Pages/AdminPortal";
 
 function App() {
-  const [toys, setToys] = useState([]);
+  const [coffeeItems, setCoffeeItems] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/toys")
+    fetch("http://localhost:3000/coffee")
       .then((r) => r.json())
-      .then((data) => setToys(data));
+      .then((data) => setCoffeeItems(data))
+      .catch((err) => console.error("Error fetching coffee items:", err));
   }, []);
 
-  function handleAddToy(newToy) {
-    setToys((prev) => [...prev, newToy]);
+  function handleAddCoffee(newCoffee) {
+    setCoffeeItems((prev) => [...prev, newCoffee]);
   }
 
-  function handleDeleteToy(id) {
-    setToys((prev) => prev.filter((toy) => toy.id !== id));
+  function handleDeleteCoffee(id) {
+    setCoffeeItems((prev) => prev.filter((item) => item.id !== id));
   }
 
-  function handleLikeToy(updatedToy) {
-    setToys((prev) =>
-      prev.map((toy) => (toy.id === updatedToy.id ? updatedToy : toy))
+  function handleLikeCoffee(updatedCoffee) {
+    setCoffeeItems((prev) =>
+      prev.map((item) => (item.id === updatedCoffee.id ? updatedCoffee : item))
     );
   }
 
@@ -37,15 +38,15 @@ function App() {
           path="/shop"
           element={
             <Shop
-              toys={toys}
-              onDeleteToy={handleDeleteToy}
-              onLikeToy={handleLikeToy}
+              coffeeItems={coffeeItems}
+              onDeleteCoffee={handleDeleteCoffee}
+              onLikeCoffee={handleLikeCoffee}
             />
           }
         />
         <Route
           path="/admin"
-          element={<AdminPortal onAddToy={handleAddToy} />}
+          element={<AdminPortal onAddCoffee={handleAddCoffee} />}
         />
       </Routes>
     </Router>

@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import Sidebar from "../Components/Sidebar";
 import ItemCard from "../Components/ItemCards";
 
-function Shop({ toys, onDeleteToy, onLikeToy }) {
+function Shop({ coffeeItems = [], onDeleteCoffee, onLikeCoffee }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedLocation, setSelectedLocation] = useState("");
 
-  const filteredToys = toys.filter((toy) => {
-    const matchesSearch = (toy.name || "")
+  const filteredCoffee = coffeeItems.filter((item) => {
+    const matchesSearch = (item.name || "")
       .toLowerCase()
       .includes(searchTerm.toLowerCase());
     const matchesLocation = selectedLocation
-      ? toy.origin === selectedLocation
+      ? item.origin === selectedLocation
       : true;
     return matchesSearch && matchesLocation;
   });
@@ -25,12 +25,12 @@ function Shop({ toys, onDeleteToy, onLikeToy }) {
         setSelectedLocation={setSelectedLocation}
       />
       <div className="grid-container">
-        {filteredToys.map((toy) => (
+        {filteredCoffee.map((item) => (
           <ItemCard
-            key={toy.id}
-            toy={toy}
-            onDeleteToy={onDeleteToy}
-            onLikeToy={onLikeToy}
+            key={item.id}
+            coffee={item}
+            onDeleteCoffee={onDeleteCoffee}
+            onLikeCoffee={onLikeCoffee}
           />
         ))}
       </div>

@@ -1,21 +1,21 @@
 import React from "react";
 
-function ItemCard({ toy, onDeleteToy, onLikeToy }) {
-  const { id, name, description, origin, price, likes } = toy;
+function ItemCard({ coffee, onDeleteCoffee, onLikeCoffee }) {
+  const { id, name, description, origin, price, likes } = coffee;
 
   function handleLike() {
-    fetch(`http://localhost:3000/toys/${id}`, {
+    fetch(`http://localhost:3000/coffee/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ likes: (likes || 0) + 1 }),
     })
       .then((r) => r.json())
-      .then((updated) => onLikeToy(updated));
+      .then((updated) => onLikeCoffee(updated));
   }
 
   function handleDelete() {
-    fetch(`http://localhost:3000/toys/${id}`, { method: "DELETE" }).then(() => {
-      onDeleteToy(id);
+    fetch(`http://localhost:3000/coffee/${id}`, { method: "DELETE" }).then(() => {
+      onDeleteCoffee(id);
     });
   }
 
@@ -30,7 +30,7 @@ function ItemCard({ toy, onDeleteToy, onLikeToy }) {
 
       <div className="card-actions">
         <button className="btn-like" onClick={handleLike}>
-         likes {likes || 0}
+          likes {likes || 0}
         </button>
         <button className="btn-delete" onClick={handleDelete}>
           Delete
